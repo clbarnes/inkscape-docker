@@ -1,6 +1,6 @@
-FROM ubuntu:20.04
+FROM ubuntu:16.04
 
-ENV INKSCAPE_VERSION="1.0.1+r73~ubuntu20.04.1" \
+ENV INKSCAPE_VERSION="0.92.5+68~ubuntu16.04.1" \
     DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
