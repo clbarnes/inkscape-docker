@@ -1,0 +1,16 @@
+FROM registry.gitlab.com/inkscape/inkscape-ci-docker/master
+
+ENV INKSCAPE_REVISION=master
+
+RUN git clone --recurse-submodules https://gitlab.com/inkscape/inkscape.git && \
+    cd inkscape && \
+    git checkout ${INKSCAPE_REVISION} && \
+    mkdir build && \
+    cd build && \
+    cmake .. -DCMAKE_INSTALL_PREFIX=${PWD}/install_dir -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache && \
+    cmake .. -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache && \
+    make -j$((`nproc`+1)) && \
+    make install && \
+    ln -s ${PWD}/install_dir/bin/inkscape /usr/bin/inkscape
+
+ENTRYPOINT [ "/usr/bin/inkscape" ]
