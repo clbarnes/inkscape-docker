@@ -28,5 +28,3 @@ docker run \
 ## Notes
 
 Because docker images are not built on the same schedule as commits are made to the inkscape repo, the `master` tag for `Dockerfile.source` image may not represent the current `master` revision.
-
-The main dockerfile is intended to optimise for container size; the `.source` dockerfile is intended to optimise for build caching.
