@@ -5,8 +5,6 @@ Unofficial docker image for installation of specific [inkscape](https://inkscape
 There is an additional configuration for building specific revisions from source, but these images will not be published.
 This Dockerfile was derived from the [inkscape documentation](https://inkscape.org/develop/getting-started/).
 
-Please raise an issue (or pull request!) if you would like another version of inkscape represented.
-
 ## Usage
 
 The original motivation behind this repo was reproducibly converting SVGs into PDFs for academic publishing.
@@ -31,3 +29,20 @@ docker run \
 
 Note that some inkscape commands may not be possible in this image (if they depend on the GUI being available).
 If you need the GUI, see [x11vnc/inkscape](https://github.com/x11vnc/inkscape-desktop).
+
+## Contributing
+
+Please raise an issue (or pull request!) if you would like another version of inkscape represented.
+
+Check that a docker file changed locally can still build using [GNU make](https://www.gnu.org/software/make/):
+
+```sh
+# check the image to be published can be built
+make  # or `make latest`
+
+# image built from inkscape source
+make source
+
+# both
+make both
+```
