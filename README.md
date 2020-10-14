@@ -1,8 +1,11 @@
 # inkscape-docker
 
-Unofficial docker image for installation of specific inkscape releases for command-line use.
+Unofficial docker image for installation of specific [inkscape](https://inkscape.org/) releases for command-line use.
 
 There is an additional configuration for building specific revisions from source, but these images will not be published.
+This Dockerfile was derived from the [inkscape documentation](https://inkscape.org/develop/getting-started/).
+
+Please raise an issue (or pull request!) if you would like another version of inkscape represented.
 
 ## Usage
 
@@ -25,3 +28,6 @@ docker run \
 4. Map the host user to the container user so that build artifacts have the correct permissions
 5. Give the `namespace/name:tag` of the image
 6. Pass arguments to `inkscape`, keeping in mind that your mounted directory is `/data`: here, convert `source/figure.svg` to `target/figure.pdf`
+
+Note that some inkscape commands may not be possible in this image (if they depend on the GUI being available).
+If you need the GUI, see [x11vnc/inkscape](https://github.com/x11vnc/inkscape-desktop).
