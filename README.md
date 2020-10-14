@@ -22,9 +22,6 @@ docker run \
 1. Run a docker image
 2. Clean up the container once it's completed
 3. Mount the current directory as a volume in the container at `/data`
-4. Give the `namespace/name:tag` of the image
-5. Pass arguments to `inkscape`, keeping in mind that your mounted directory is `/data`: here, convert `source/figure.svg` to `target/figure.pdf`
-
-## Notes
-
-Because docker images are not built on the same schedule as commits are made to the inkscape repo, the `master` tag for `Dockerfile.source` image may not represent the current `master` revision.
+4. Map the host user to the container user so that build artifacts have the correct permissions
+5. Give the `namespace/name:tag` of the image
+6. Pass arguments to `inkscape`, keeping in mind that your mounted directory is `/data`: here, convert `source/figure.svg` to `target/figure.pdf`
